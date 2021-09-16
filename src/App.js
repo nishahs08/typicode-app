@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { Toolbar } from '@material-ui/core';
+import { useEffect, useState } from 'react';
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
+import {Navbar} from './Components/Navbar'
+import { UserInformation } from './Components/UserInformation';
+import {Users} from './Components/Users'
 function App() {
+  const [users,setUsers] = useState([]);
+  const [user,setUser]=useState({});
+
+  useEffect(()=> {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response=>response.json())
+    .then(response=>{ console.log(response); setUsers(response) })
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Toolbar/>
+      <Route path='/blogs'> 
+        <h1>hSGDjbsdf</h1>
+        <h4>GASJDaf</h4>
+        <h1>hSGDjbsdf</h1>
+        <h4>GASJDaf</h4>
+      </Route>
+      <Route exact path='/'>
+      <Toolbar/>
+        <Users users={users} setUser={(user)=>setUser(user)}/>
+      </Route>
+      <Route exact path='/user/info'>
+        <UserInformation user={user}/>
+      </Route>
+    </Router>  
   );
 }
 
