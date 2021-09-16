@@ -25,6 +25,7 @@ const Menu = styled(Typography)({
 const useStyles = makeStyles((theme) => ({
   appbar: {
     background: "#84DCCF",
+    zIndex:theme.zIndex.drawer + 1
   },
   menu: {
     padding: "10px",
@@ -38,7 +39,7 @@ const menuItems = [
   },
   {
     component: "Blogs",
-    path: "/blogs",
+    path: "/posts",
   },
   {
     component: "Albums",
