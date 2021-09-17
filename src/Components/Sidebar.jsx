@@ -1,4 +1,5 @@
-import { Avatar, Drawer, Toolbar, Typography, Box, Divider ,makeStyles, Container,Grid} from "@material-ui/core";
+import { Avatar, Drawer, Toolbar, Typography, Box, Divider , Container,Grid} from "@mui/material";
+import { makeStyles } from "@mui/styles"
 import {Link} from 'react-router-dom'
 import img from '../images/profile.jpg';
 

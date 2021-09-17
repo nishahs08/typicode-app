@@ -4,11 +4,12 @@ import {
   IconButton,
   Typography,
   styled,
-  makeStyles,
   Hidden,
   Drawer,
   Box,
-} from "@material-ui/core";
+  useTheme
+} from "@mui/material";
+import { makeStyles } from "@mui/styles"
 import MenuIcon from "@material-ui/icons/Menu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -22,15 +23,15 @@ const Menu = styled(Typography)({
   },
 });
 
-const useStyles = makeStyles((theme) => ({
-  appbar: {
+const TAppBar = styled(AppBar) (({ theme })=>({
+
     background: "#84DCCF",
-    zIndex:theme.zIndex.drawer + 1
-  },
-  menu: {
-    padding: "10px",
-  },
-}));
+    // zIndex:theme.zIndex.drawer +1,
+    color:'#000'
+
+}))
+
+
 
 const menuItems = [
   {
@@ -52,21 +53,22 @@ const menuItems = [
 ];
 
 const NavItems = () => {
-  const classes = useStyles();
+
   return menuItems.map((item) => (
-    <Link to={item.path} style={{ textDecoration: "none", color: "#fff" }}>
-      <Menu className={classes.menu}>{item.component}</Menu>
+    <Link to={item.path} style={{ textDecoration: "none",padding:'10px'}}>
+      <Menu >{item.component}</Menu>
     </Link>
   ));
 };
 export const Navbar = () => {
-  const classes = useStyles();
+
+
   const [open, setOpen] = useState(false);
   return (
     <>
-      <AppBar className={classes.appbar}>
+      <TAppBar >
         <Toolbar>
-          <Menu variant="h6" className={classes.menu}>
+          <Menu variant="h6" >
             JSON Typicode Explorer
           </Menu>
           <Gap />
@@ -80,7 +82,7 @@ export const Navbar = () => {
             </IconButton>
           </Hidden>
         </Toolbar>
-      </AppBar>
+      </TAppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <NavItems />
       </Drawer>

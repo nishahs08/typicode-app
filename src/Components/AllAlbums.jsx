@@ -1,5 +1,6 @@
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useEffect, useState } from "react"
+import { Album } from "./Album";
 
 export const AllAlbums = ({ user }) => {
 
@@ -12,7 +13,7 @@ export const AllAlbums = ({ user }) => {
 
     return (
         <>
-         {albums.map(album=>  <Typography>{album.title}</Typography>)}
+         {albums.map(album=>  <Album album={album}/>)}
         </>
     )
 }

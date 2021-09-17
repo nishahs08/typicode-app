@@ -1,17 +1,17 @@
-import { makeStyles } from "@material-ui/core"
-import { Grid, Card } from "@material-ui/core"
+import { makeStyles } from "@mui/styles"
+import { Grid, Card } from "@mui/material"
+import { styled } from "@material-ui/core"
 
-const useStyles = makeStyles((theme) => ({
-   root:{
+
+const TCard = styled(Card)(({theme})=>({
     width: '30%', 
     margin: 'auto',
     [theme.breakpoints.down('md')]:{
         width:'90%'
     }
-   }
 }))
 export const UserInformation = ({ user }) => {
-const classes = useStyles();
+
     const getInformation = (key, value) => {
         if (typeof value === 'object') {
             return Object.entries(value).map((k, i) => {
@@ -25,8 +25,8 @@ const classes = useStyles();
         )
     }
     return (
-        <Card className={classes.root}>
+        <TCard >
             {Object.entries(user).map(k => getInformation(k[0], k[1]))}
-        </Card>
+        </TCard>
     )
 }

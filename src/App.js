@@ -1,5 +1,5 @@
 
-import { Toolbar } from '@material-ui/core';
+import { Container, Toolbar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom"
 import {Navbar} from './Components/Navbar'
@@ -7,11 +7,13 @@ import { Posts } from './Components/Posts';
 import { Sidebar } from './Components/Sidebar';
 import { UserInformation } from './Components/UserInformation';
 import {Users} from './Components/Users';
-import {Albums} from './Components/Albums'
+import {UserAlbums} from './Components/UserAlbums'
 import { Todos } from './Components/Todos';
 import { AllPosts } from './Components/AllPosts';
 import { AllAlbums } from './Components/AllAlbums';
 import { AllTodos } from './Components/AllTodos';
+import { UserPosts } from './Components/UserPosts';
+import { UserTodos} from './Components/UserTodos';
 function App() {
   const [users,setUsers] = useState([]);
   const [user,setUser]=useState({});
@@ -25,10 +27,11 @@ function App() {
 
   return (
     <Router>
-      <Navbar/>
-      
+      <Navbar/>      
       <Toolbar/>
       <Sidebar user={user}/>
+      <Container maxWidth='lg'>
+        <Toolbar/>
       <Route exact path='/'>
       <Toolbar/>
         <Users users={users} setUser={(user)=>setUser(user)}/>
@@ -37,10 +40,14 @@ function App() {
         <UserInformation user={user}/>
       </Route>
       <Route exact path='/user/posts'>
-        <Posts user={user}/>
+    
+        <UserPosts user={user}/>
+      </Route>
+      <Route exact path='/user/todos'>
+        <UserTodos user={user}/>
       </Route>
       <Route exact path='/user/albums'>
-        <Albums  user={user}/>
+        <UserAlbums  user={user}/>
       </Route>
       <Route exact path='/user/todos'>
         <Todos  user={user}/>
@@ -54,6 +61,7 @@ function App() {
       <Route exact path='/todos'>
         <AllTodos/>
       </Route>
+      </Container>
     </Router>  
   );
 }
