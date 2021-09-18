@@ -1,7 +1,7 @@
 import { Grid, Paper, Typography } from "@material-ui/core"
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import { UserInformation } from "./UserInformation";
 import {useHistory} from 'react-router-dom';
+
 const style = {
     padding: '10px',
     borderRadius: '20px',

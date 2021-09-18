@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles"
-import { Grid, Card ,Container, Box} from "@mui/material"
+
+import { Grid, Card , Box} from "@mui/material"
 import { styled } from "@material-ui/core"
 
 
@@ -25,7 +25,7 @@ export const UserInformation = ({ user }) => {
         )
     }
     return (
-        <Box style={{marginLeft:'200px'}}>
+        <Box style={{marginLeft:'230px'}}>
         <TCard >
             {Object.entries(user).map(k => getInformation(k[0], k[1]))}
         </TCard>

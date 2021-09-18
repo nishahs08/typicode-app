@@ -11,7 +11,7 @@ export const Comments = ({ postId }) => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(response => response.json())
             .then(commentRes => { setComments(commentRes); console.log("-kjh----------", commentRes) })
-    }, [])
+    }, [postId])
     return (
         <>
             {comments.length > 0 ?
@@ -29,6 +29,7 @@ export const Comments = ({ postId }) => {
                         <Grid item xs={11} >
                             <Typography variant='body2'>{comment.body}</Typography>
                         </Grid>
+                       
                     </Grid>
                 ))
                 :

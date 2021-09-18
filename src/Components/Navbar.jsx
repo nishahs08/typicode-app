@@ -6,10 +6,8 @@ import {
   styled,
   Hidden,
   Drawer,
-  Box,
-  useTheme
+  Box
 } from "@mui/material";
-import { makeStyles } from "@mui/styles"
 import MenuIcon from "@material-ui/icons/Menu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -24,10 +22,7 @@ const Menu = styled(Typography)({
 });
 
 const TAppBar = styled(AppBar) (({ theme })=>({
-
-    background: "#84DCCF",
-    zIndex: 1201,
-    color:'#000'
+  zIndex: theme.zIndex.drawer + 1,
 
 }))
 
@@ -55,8 +50,8 @@ const menuItems = [
 const NavItems = ({setUser}) => {
 
   return menuItems.map((item) => (
-    <Link to={item.path} style={{ textDecoration: "none",padding:'10px'}} onClick={()=>setUser(null)}>
-      <Menu >{item.component}</Menu>
+    <Link to={item.path} style={{ textDecoration: "none",padding:'10px',color:'#1976d2'}} onClick={()=>setUser(null)}>
+      <Menu variant='h6'>{item.component}</Menu>
     </Link>
   ));
 };
@@ -66,7 +61,7 @@ export const Navbar = ({setUser}) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <TAppBar >
+      <TAppBar color='default'>
         <Toolbar>
           <Menu variant="h6" >
             JSON Typicode Explorer
@@ -84,7 +79,10 @@ export const Navbar = ({setUser}) => {
         </Toolbar>
       </TAppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <NavItems />
+        <Box style={{padding:'10px',margin:'10px'}}>
+        <NavItems setUser={setUser}/>
+        </Box>
+     
       </Drawer>
     </>
   );

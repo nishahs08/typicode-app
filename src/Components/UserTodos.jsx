@@ -7,7 +7,7 @@ export const UserTodos = ({ user }) => {
         fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/todos`)
             .then(response => response.json())
             .then(response => { setTodos(response); console.log(response) })
-    }, []);
+    }, [user.id]);
     const editTodosStatus = (id) => {
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {

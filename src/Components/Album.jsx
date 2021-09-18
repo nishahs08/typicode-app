@@ -1,5 +1,4 @@
-import { CardContent, CardHeader, Card, Typography, Paper } from "@material-ui/core"
-import { Box } from "@mui/material";
+import { Typography, Paper } from "@material-ui/core"
 import { useState } from "react";
 import { Photos } from './Photos';
 export const Album = ({ album, user }) => {

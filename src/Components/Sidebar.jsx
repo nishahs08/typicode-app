@@ -9,14 +9,14 @@ const useStyles = makeStyles((theme)=>({
           flexDirection: 'column',
           alignItems:'center',
           padding:'10px',
-          margin:'5px'
+          width:'200px'
 
     }
 }));
 
 const TLink = styled(Link)({
     textDecoration:'none',
-    padding:'5px',
+    padding:'10px',
     marginBottom:'10px',
   
 })
