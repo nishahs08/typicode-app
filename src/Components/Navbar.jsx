@@ -26,7 +26,7 @@ const Menu = styled(Typography)({
 const TAppBar = styled(AppBar) (({ theme })=>({
 
     background: "#84DCCF",
-zIndex: 1201,
+    zIndex: 1201,
     color:'#000'
 
 }))
