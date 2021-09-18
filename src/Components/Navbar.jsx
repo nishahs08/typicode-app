@@ -6,7 +6,8 @@ import {
   styled,
   Hidden,
   Drawer,
-  Box
+  Box,
+  Container
 } from "@mui/material";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useState } from "react";
@@ -21,12 +22,10 @@ const Menu = styled(Typography)({
   },
 });
 
-const TAppBar = styled(AppBar) (({ theme })=>({
+const TAppBar = styled(AppBar)(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
 
-}))
-
-
+}));
 
 const menuItems = [
   {
@@ -47,28 +46,28 @@ const menuItems = [
   },
 ];
 
-const NavItems = ({setUser}) => {
-
+const NavItems = ({ setUser }) => {
   return menuItems.map((item) => (
-    <Link to={item.path} style={{ textDecoration: "none",padding:'10px',color:'#1976d2'}} onClick={()=>setUser(null)}>
-      <Menu variant='h6'>{item.component}</Menu>
+    <Link
+      to={item.path}
+      style={{ textDecoration: "none", padding: "10px", color: "#1976d2" }}
+      onClick={() => setUser(null)}
+    >
+      <Menu variant="h6">{item.component}</Menu>
     </Link>
   ));
 };
-export const Navbar = ({setUser}) => {
-
-
+export const Navbar = ({ setUser }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <TAppBar color='default'>
+
+      <TAppBar color="default" >
         <Toolbar>
-          <Menu variant="h6" >
-            JSON Typicode Explorer
-          </Menu>
+          <Menu variant="h6">JSON Typicode Explorer</Menu>
           <Gap />
           <Hidden smDown>
-            <NavItems setUser={setUser}/>
+            <NavItems setUser={setUser} />
           </Hidden>
           <Hidden mdUp>
             <Gap />
@@ -78,11 +77,11 @@ export const Navbar = ({setUser}) => {
           </Hidden>
         </Toolbar>
       </TAppBar>
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box style={{padding:'10px',margin:'10px'}}>
-        <NavItems setUser={setUser}/>
-        </Box>
      
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <Box style={{ padding: "10px", margin: "10px" }}>
+          <NavItems setUser={setUser} />
+        </Box>
       </Drawer>
     </>
   );

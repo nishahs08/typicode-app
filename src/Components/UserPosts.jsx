@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Posts } from "./Posts";
 
@@ -17,7 +17,7 @@ export const UserPosts = ({ user }) => {
 
   return (
     <Box style={{ marginLeft: "230px" }}>
-      <Posts posts={posts} userId={user.id} setPosts={setPosts}/>
+      <Posts posts={posts} userId={user.id} setPosts={setPosts} />
     </Box>
   );
 };
