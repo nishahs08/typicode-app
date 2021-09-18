@@ -7,7 +7,7 @@ export const Photos = ({ user, albumId }) => {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        const url = user ? `https://jsonplaceholder.typicode.com/users/${user.id}/photos` : `https://jsonplaceholder.typicode.com/photos`
+        const url = `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`
         fetch(url)
             .then(photos => photos.json())
             .then(photos => { const filteredPhotos = user ? photos.filter(photo => photo.albumId === albumId) : photos; setPhotos(filteredPhotos) })
