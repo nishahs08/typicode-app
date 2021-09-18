@@ -10,7 +10,7 @@ export const Photos= ({ user ,albumId}) => {
         fetch(url)
         .then(photos => photos.json())
         .then(photos => { const filteredPhotos = user ? photos.filter(photo=>photo.albumId === albumId) : photos; setPhotos(filteredPhotos) })
-    },[]);
+    },[user,albumId]);
 
     
     return (

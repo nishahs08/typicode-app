@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { useEffect, useState } from "react"
 import { Album } from "./Album";
 
-export const AllAlbums = ({ user }) => {
+export const AllAlbums = () => {
 
     const [albums, setAlbums] = useState([]);
 

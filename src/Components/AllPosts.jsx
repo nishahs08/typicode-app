@@ -12,10 +12,10 @@ export const AllPosts = ({ user }) => {
     }, []);
     return <>
         
-            {posts.map(post => <>
+           
                 <Posts posts={posts}/>
-            </>
-            )}
+        
+     
      
     </>
 }
