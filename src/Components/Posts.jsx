@@ -25,7 +25,7 @@ export const Posts = ({ posts }) => {
 
                 {posts.length > 0 ?
                  posts.map(post => (
-                        <Card style={{ margin: '10px', borderTop: '10px solid #84DCCF' }}>
+                        <Card key={post.id} style={{ margin: '10px', borderTop: '10px solid #84DCCF' }}>
                             <CardHeader title={post.title} >
                             </CardHeader>
 
@@ -41,7 +41,7 @@ export const Posts = ({ posts }) => {
                
                   :
                   Array(10).fill(0).map(s => (
-                      <Stack  style={{ margin: '10px',padding:'5px'}}>
+                      <Stack  key={post.id} style={{ margin: '10px',padding:'5px'}}>
                           <Skeleton variant="rectangular" width={250} height={30} style={{ margin: '8px'}} />
       
                           <Skeleton variant="rectangular" width={250} height={250} style={{ margin: '8px'}} />

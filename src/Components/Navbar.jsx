@@ -52,15 +52,15 @@ const menuItems = [
   },
 ];
 
-const NavItems = () => {
+const NavItems = ({setUser}) => {
 
   return menuItems.map((item) => (
-    <Link to={item.path} style={{ textDecoration: "none",padding:'10px'}}>
+    <Link to={item.path} style={{ textDecoration: "none",padding:'10px'}} onClick={()=>setUser(null)}>
       <Menu >{item.component}</Menu>
     </Link>
   ));
 };
-export const Navbar = () => {
+export const Navbar = ({setUser}) => {
 
 
   const [open, setOpen] = useState(false);
@@ -73,7 +73,7 @@ export const Navbar = () => {
           </Menu>
           <Gap />
           <Hidden smDown>
-            <NavItems />
+            <NavItems setUser={setUser}/>
           </Hidden>
           <Hidden mdUp>
             <Gap />

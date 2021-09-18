@@ -1,21 +1,20 @@
-import { CardContent, CardHeader ,Card, Typography,Paper} from "@material-ui/core"
+import { CardContent, CardHeader, Card, Typography, Paper } from "@material-ui/core"
+import { Box } from "@mui/material";
 import { useState } from "react";
-import {Photos} from './Photos';
-export const Album = ({album,user}) =>{
-const [show,setShow]=useState(false)
+import { Photos } from './Photos';
+export const Album = ({ album, user }) => {
+    const [show, setShow] = useState(false)
     return (
         <>
-     
-        <Card>
-          <CardHeader title={album.title} onClick={()=>setShow(true)}/>
-          {show && 
-          <CardContent>
-          <Photos user={user} albumId={album.id}/>
-          </CardContent>
-}
-         
-       </Card>
-       
+            <Paper style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', margin: '10px' }}>
+                <Typography >{album.title} </Typography>
+                <Typography onClick={() => setShow(!show)} color='primary'>{show ? 'hide photos' : 'show photos'}</Typography>
+            </Paper>
+            {show &&
+                <Paper style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', margin: '10px' }}>
+                    <Photos user={user} albumId={album.id} />
+                </Paper>
+            }
         </>
 
     )

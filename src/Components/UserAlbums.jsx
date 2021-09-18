@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Typography,Container } from "@material-ui/core";
 import { useEffect, useState } from "react"
 import { Album } from "./Album";
 import { AllAlbums } from "./AllAlbums";
@@ -13,8 +13,8 @@ export const UserAlbums = ({ user }) => {
 
 
     return (
-        <>
-         {albums.map(album=> <Album user={user} album={album}/>)}
-        </>
+        <Container style={{marginLeft:'200px'}}>
+         {albums.map((album,i)=> <Album key={i} user={user} album={album}/>)}
+        </Container>
     )
 }

@@ -16,7 +16,7 @@ export const Comments = ({ postId }) => {
         <>
             {comments.length > 0 ?
                 comments.map(comment => (
-                    <Grid container style={{backgroundColor:'#e3dac9',margin:'5px'}}>
+                    <Grid container key={comment.id} style={{backgroundColor:'#e3dac9',margin:'5px'}}>
                         <Grid item xs={11}>
                             <Grid container alignItems='center'>
                                 <Grid item> <Avatar><ProfileIcon /></Avatar></Grid>
@@ -32,8 +32,8 @@ export const Comments = ({ postId }) => {
                     </Grid>
                 ))
                 :
-                Array(4).fill(0).map(s => (
-                    <Stack style={{ display: 'flex', flexDirection: 'row', margin: '10px' }}>
+                Array(4).fill(0).map((s,i) => (
+                    <Stack key={i} style={{ display: 'flex', flexDirection: 'row', margin: '10px' }}>
                         <Skeleton variant='circular' width={40} height={40} />
                         <Skeleton variant='rectangular' width={400} height={80} />
                     </Stack>

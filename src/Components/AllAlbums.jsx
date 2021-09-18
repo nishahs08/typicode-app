@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography ,Container} from "@mui/material";
 import { useEffect, useState } from "react"
 import { Album } from "./Album";
 
@@ -9,11 +9,9 @@ export const AllAlbums = () => {
     useEffect(() => {fetch(`https://jsonplaceholder.typicode.com/albums`)
         .then(albums => albums.json())
         .then(albums => { console.log('---',albums); setAlbums(albums) })},[]);
-
-
     return (
-        <>
-         {albums.map(album=>  <Album album={album}/>)}
-        </>
+        <Container maxWidth='lg'>
+         {albums.map(album=>  <Album key={album.id} album={album}/>)}
+    </Container>
     )
 }
