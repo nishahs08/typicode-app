@@ -16,7 +16,7 @@ function App() {
 	const [user, setUser] = useState(null);
 
 	return (
-		<Router>
+		<Router basename={process.env.REACT_APP_ROUTER_BASE_NAME}>
 			<Navbar setUser={setUser} />
 			<Toolbar />
 			{!!user ? <Sidebar user={user} /> : null}
