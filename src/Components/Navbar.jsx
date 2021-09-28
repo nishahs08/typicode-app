@@ -1,88 +1,86 @@
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  styled,
-  Hidden,
-  Drawer,
-  Box,
-  Container
-} from "@mui/material";
-import MenuIcon from "@material-ui/icons/Menu";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+	AppBar,
+	Toolbar,
+	IconButton,
+	Typography,
+	styled,
+	Hidden,
+	Drawer,
+	Box,
+	Container,
+} from '@mui/material';
+import MenuIcon from '@material-ui/icons/Menu';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const Gap = styled(`div`)({
-  flex: 1,
+	flex: 1,
 });
 
 const Menu = styled(Typography)({
-  menu: {
-    padding: "10px",
-  },
+	menu: {
+		padding: '10px',
+	},
 });
 
 const TAppBar = styled(AppBar)(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-
+	zIndex: theme.zIndex.drawer + 1,
 }));
 
 const menuItems = [
-  {
-    component: "Users",
-    path: "/",
-  },
-  {
-    component: "Blogs",
-    path: "/posts",
-  },
-  {
-    component: "Albums",
-    path: "/albums",
-  },
-  {
-    component: "Todos",
-    path: "/todos",
-  },
+	{
+		component: 'Users',
+		path: '/',
+	},
+	{
+		component: 'Blogs',
+		path: '/posts',
+	},
+	{
+		component: 'Albums',
+		path: '/albums',
+	},
+	{
+		component: 'Todos',
+		path: '/todos',
+	},
 ];
 
 const NavItems = ({ setUser }) => {
-  return menuItems.map((item) => (
-    <Link
-      to={item.path}
-      style={{ textDecoration: "none",margin:"10px", color: "#1976d2" }}
-      onClick={() => setUser(null)}
-    >
-      <Menu variant="h6">{item.component}</Menu>
-    </Link>
-  ));
+	return menuItems.map((item) => (
+		<Link
+			to={item.path}
+			style={{ textDecoration: 'none', margin: '10px', color: '#1976d2' }}
+			onClick={() => setUser(null)}
+		>
+			<Menu variant='h6'>{item.component}</Menu>
+		</Link>
+	));
 };
 export const Navbar = ({ setUser }) => {
-  const [open, setOpen] = useState(false);
-  return (
-    <>
+	const [open, setOpen] = useState(false);
+	return (
+		<>
+			<TAppBar color='default'>
+				<Toolbar>
+					<Menu variant='h6'>JSON Typicode Explorer</Menu>
+					<Gap />
+					<Hidden smDown>
+						<NavItems setUser={setUser} />
+					</Hidden>
+					<Hidden mdUp>
+						<Gap />
+						<IconButton onClick={() => setOpen(true)}>
+							<MenuIcon></MenuIcon>
+						</IconButton>
+					</Hidden>
+				</Toolbar>
+			</TAppBar>
 
-      <TAppBar color="default" >
-        <Toolbar>
-          <Menu variant="h6">JSON Typicode Explorer</Menu>
-          <Gap />
-          <Hidden smDown>
-            <NavItems setUser={setUser} />
-          </Hidden>
-          <Hidden mdUp>
-            <Gap />
-            <IconButton onClick={() => setOpen(true)}>
-              <MenuIcon></MenuIcon>
-            </IconButton>
-          </Hidden>
-        </Toolbar>
-      </TAppBar>
-     
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box style={{ padding: "10px", margin: "10px" }}>
-          <NavItems setUser={setUser} />
-        </Box>
-      </Drawer>
-    </>
-  );
+			<Drawer anchor='right' open={open} onClose={() => setOpen(false)}>
+				<Box style={{ padding: '10px', margin: '10px' }}>
+					<NavItems setUser={setUser} />
+				</Box>
+			</Drawer>
+		</>
+	);
 };
