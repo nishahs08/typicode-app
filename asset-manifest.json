@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/typicode-app/static/css/main.d7607437.chunk.css",
-    "main.js": "/typicode-app/static/js/main.5d18dafe.chunk.js",
-    "main.js.map": "/typicode-app/static/js/main.5d18dafe.chunk.js.map",
+    "main.js": "/typicode-app/static/js/main.9955b695.chunk.js",
+    "main.js.map": "/typicode-app/static/js/main.9955b695.chunk.js.map",
     "runtime-main.js": "/typicode-app/static/js/runtime-main.0cdd04e5.js",
     "runtime-main.js.map": "/typicode-app/static/js/runtime-main.0cdd04e5.js.map",
     "static/js/2.624a038b.chunk.js": "/typicode-app/static/js/2.624a038b.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.0cdd04e5.js",
     "static/js/2.624a038b.chunk.js",
     "static/css/main.d7607437.chunk.css",
-    "static/js/main.5d18dafe.chunk.js"
+    "static/js/main.9955b695.chunk.js"
   ]
 }
