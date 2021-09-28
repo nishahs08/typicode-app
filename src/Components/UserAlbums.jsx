@@ -9,7 +9,6 @@ export const UserAlbums = ({ user }) => {
     fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/albums`)
       .then((albums) => albums.json())
       .then((albums) => {
-        console.log("---hfhhhhhhhhhhhhhhh", albums);
         setAlbums(albums);
       });
   }, [user.id]);

@@ -8,7 +8,6 @@ export const UserTodos = ({ user }) => {
       .then((response) => response.json())
       .then((response) => {
         setTodos(response);
-        console.log(response);
       });
   }, [user.id]);
   const editTodosStatus = (id) => {

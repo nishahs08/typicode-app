@@ -24,7 +24,6 @@ export const User = ({ user, setUser }) => {
         justifyContent="space-between"
         alignItems="center"
         onClick={() => {
-          console.log(user);
           setUser(user);
           history.push("user/info");
         }}

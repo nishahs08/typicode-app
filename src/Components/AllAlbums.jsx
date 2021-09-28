@@ -8,10 +8,7 @@ export const AllAlbums = () => {
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/albums`)
       .then((albums) => albums.json())
-      .then((albums) => {
-        console.log("---", albums);
-        setAlbums(albums);
-      });
+      .then((albums) => {setAlbums(albums);  });
   }, []);
   return (
     <Container maxWidth="lg">

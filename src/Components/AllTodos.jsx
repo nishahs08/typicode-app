@@ -9,7 +9,6 @@ export const AllTodos = ({ user }) => {
     fetch(`https://jsonplaceholder.typicode.com/todos`)
       .then((todos) => todos.json())
       .then((todos) => {
-        console.log("---", todos);
         setTodos(todos);
       });
   }, []);

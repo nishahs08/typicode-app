@@ -10,7 +10,6 @@ export const UserPosts = ({ user }) => {
       .then((response) => response.json())
       .then((posts) => posts.filter((post) => post.userId === user.id))
       .then((posts) => {
-        console.log(posts);
         setPosts(posts);
       });
   }, [user.id]);

@@ -10,7 +10,6 @@ export const Comments = ({ postId }) => {
       .then((response) => response.json())
       .then((commentRes) => {
         setComments(commentRes);
-        console.log("-kjh----------", commentRes);
       });
   }, [postId]);
   return (

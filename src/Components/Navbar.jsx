@@ -50,7 +50,7 @@ const NavItems = ({ setUser }) => {
   return menuItems.map((item) => (
     <Link
       to={item.path}
-      style={{ textDecoration: "none", padding: "10px", color: "#1976d2" }}
+      style={{ textDecoration: "none",margin:"10px", color: "#1976d2" }}
       onClick={() => setUser(null)}
     >
       <Menu variant="h6">{item.component}</Menu>

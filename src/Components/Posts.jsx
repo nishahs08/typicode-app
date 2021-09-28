@@ -45,7 +45,6 @@ export const Posts = ({ posts, userId, setPosts }) => {
       fetch("https://jsonplaceholder.typicode.com/users")
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
           setUsers(response);
         });
     }
@@ -133,7 +132,7 @@ export const Posts = ({ posts, userId, setPosts }) => {
         onClose={() => setShowPost(false)}
       >
         <DialogContent>
-          <Grid container direction="column" spacing={2}>
+          <Grid container direction="column" spacing={2} style={{width:'400px'}}>
             <Grid item>
               <Button onClick={() => setShowPost(false)}>Close</Button>
             </Grid>
@@ -173,8 +172,8 @@ export const Posts = ({ posts, userId, setPosts }) => {
         onClose={() => setShowAddPost(false)}
       >
         <DialogContent>
-          <Grid container direction="column" spacing={2}>
-            <Grid item>
+          <Grid container direction="column" spacing={2} style={{}}>
+            <Grid item style={{display:'flex',justifyContent:'space-between'}}>
               <Button onClick={() => setShowAddPost(false)}>Close</Button>
               <Button
                 onClick={() => {
@@ -186,7 +185,8 @@ export const Posts = ({ posts, userId, setPosts }) => {
             </Grid>
             <Grid item>
               <TextField
-                label="title"
+              fullWidth
+                label="Title"
                 value={newPost.title}
                 onChange={(e) =>
                   setNewPost({ ...newPost, title: e.target.value })
@@ -195,7 +195,8 @@ export const Posts = ({ posts, userId, setPosts }) => {
             </Grid>
             <Grid item>
               <TextField
-                label="body"
+              fullWidth
+                label="Description"
                 value={newPost.body}
                 onChange={(e) =>
                   setNewPost({ ...newPost, body: e.target.value })
@@ -205,18 +206,18 @@ export const Posts = ({ posts, userId, setPosts }) => {
 
             {!userId && (
               <Grid item>
-                <Box sx={{ minWidth: 120 }}>
+                <Box sx={{ minWidth: 420 }}>
                   <FormControl fullWidth>
-                    <InputLabel id="select">Age</InputLabel>
+                    <InputLabel id="select">Select User</InputLabel>
                     <Select
                       labelId="select"
                       id="simple-select"
                       value={user}
-                      label="Age"
+                      label="Select User"
                       onChange={(e) => setUser(e.target.value)}
                     >
                       {users.map((option) => (
-                        <MenuItem value={option.id}>{option.email}</MenuItem>
+                        <MenuItem value={option.id} key={option.id}>{option.email}</MenuItem>
                       ))}
                     </Select>
                   </FormControl>
